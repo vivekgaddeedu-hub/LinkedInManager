@@ -1,0 +1,12 @@
+node_modules
+dist
+data/*.enc
+.env
+.env.*
+.git
+.github
+tests
+coverage
+*.log
+.DS_Store
+.gemini

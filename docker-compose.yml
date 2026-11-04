@@ -1,0 +1,28 @@
+services:
+  linkedin-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: linkedin-mcp-server
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOST=0.0.0.0
+      - PUBLIC_BASE_URL=${PUBLIC_BASE_URL:-http://localhost:3000}
+      - LINKEDIN_CLIENT_ID=${LINKEDIN_CLIENT_ID}
+      - LINKEDIN_CLIENT_SECRET=${LINKEDIN_CLIENT_SECRET}
+      - LINKEDIN_REDIRECT_URI=${LINKEDIN_REDIRECT_URI:-http://localhost:3000/auth/callback}
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - TOKEN_STORAGE_PATH=/app/data/tokens.enc
+      - MCP_AUTH_TOKEN=${MCP_AUTH_TOKEN:-}
+    volumes:
+      - ./data:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
