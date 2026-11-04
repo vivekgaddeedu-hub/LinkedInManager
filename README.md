@@ -376,3 +376,4 @@ LinkedIn's official public API does not support programmatic profile editing for
 ## License
 
 MIT License. Built for use with Anthropic Claude and the Model Context Protocol.
+

@@ -34,3 +34,4 @@ describe('Health and Dashboard Endpoints', () => {
     expect(res.body).toHaveProperty('error', 'Not Found');
   });
 });
+

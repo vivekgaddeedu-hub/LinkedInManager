@@ -115,3 +115,4 @@ export interface LinkedInApiErrorResponse {
   message?: string;
   details?: unknown;
 }
+

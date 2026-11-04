@@ -57,3 +57,4 @@ HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
 
 # Start MCP Server
 CMD ["node", "dist/index.js"]
+

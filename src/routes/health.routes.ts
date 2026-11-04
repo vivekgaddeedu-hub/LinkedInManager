@@ -16,3 +16,4 @@ healthRouter.get('/health', async (_req: Request, res: Response) => {
     version: '1.0.0',
   });
 });
+

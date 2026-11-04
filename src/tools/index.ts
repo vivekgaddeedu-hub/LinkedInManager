@@ -525,3 +525,4 @@ export async function executeTool(name: string, args: any): Promise<unknown> {
   logger.info(`Executing MCP tool: ${name}`);
   return await toolEntry.handler(args);
 }
+

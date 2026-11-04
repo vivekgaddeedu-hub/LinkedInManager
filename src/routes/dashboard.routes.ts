@@ -326,3 +326,4 @@ dashboardRouter.get('/', async (req: Request, res: Response) => {
 
   res.send(html);
 });
+

@@ -230,3 +230,4 @@ export async function handleAnalyzePostPerformance(args: z.infer<typeof analyzeP
       'To view your live post impressions: Open LinkedIn on mobile or web -> Go to your profile -> Click "Analytics & tools" or click "View analytics" directly beneath your published post. You can pass those numbers into this tool to calculate your engagement benchmarks!',
   };
 }
+

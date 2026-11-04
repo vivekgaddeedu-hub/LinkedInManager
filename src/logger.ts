@@ -77,3 +77,4 @@ export const logger = {
   error: (msg: string, ...args: unknown[]) => log('error', msg, ...args),
   sanitize,
 };
+

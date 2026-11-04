@@ -40,3 +40,4 @@ main().catch((err) => {
   logger.error('Fatal initialization error:', err);
   process.exit(1);
 });
+
