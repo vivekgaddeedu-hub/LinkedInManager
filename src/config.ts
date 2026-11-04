@@ -12,8 +12,14 @@ const envSchema = z.object({
   PUBLIC_BASE_URL: z.string().url().default('http://localhost:3000'),
 
   // LinkedIn OAuth Credentials
-  LINKEDIN_CLIENT_ID: z.string().min(1).default('PLACEHOLDER_CLIENT_ID'),
-  LINKEDIN_CLIENT_SECRET: z.string().min(1).default('PLACEHOLDER_CLIENT_SECRET'),
+  LINKEDIN_CLIENT_ID: z
+    .string()
+    .optional()
+    .transform((val) => (val && val.trim() ? val.trim() : 'PLACEHOLDER_CLIENT_ID')),
+  LINKEDIN_CLIENT_SECRET: z
+    .string()
+    .optional()
+    .transform((val) => (val && val.trim() ? val.trim() : 'PLACEHOLDER_CLIENT_SECRET')),
   LINKEDIN_REDIRECT_URI: z.string().url().default('http://localhost:3000/auth/callback'),
 
   // Security: 32-byte key for AES-256-GCM encryption

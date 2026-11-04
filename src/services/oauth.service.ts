@@ -23,6 +23,18 @@ export class OAuthService {
     state: string;
     codeVerifier: string;
   } {
+    if (
+      config.NODE_ENV === 'production' &&
+      (!config.LINKEDIN_CLIENT_ID ||
+        config.LINKEDIN_CLIENT_ID === 'PLACEHOLDER_CLIENT_ID' ||
+        !config.LINKEDIN_CLIENT_SECRET ||
+        config.LINKEDIN_CLIENT_SECRET === 'PLACEHOLDER_CLIENT_SECRET')
+    ) {
+      throw new Error(
+        'Missing LinkedIn API credentials in .env. Please set LINKEDIN_CLIENT_ID and LINKEDIN_CLIENT_SECRET before connecting.'
+      );
+    }
+
     const state = cryptoService.generateSecureToken(24);
     const codeVerifier = cryptoService.generateCodeVerifier(64);
     const codeChallenge = cryptoService.generateCodeChallenge(codeVerifier);
